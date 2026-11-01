@@ -1,0 +1,10 @@
+# 站点自身
+flask>=3.0
+gunicorn>=21.2
+
+# 刷课核心（fucker.py 依赖）
+requests>=2.31
+pycryptodome>=3.19
+Pillow>=10.0
+tiktoken>=0.5
+openai>=1.0

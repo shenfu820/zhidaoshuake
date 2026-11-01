@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>神芙刷课站</title>
+<meta name="color-scheme" content="light">
+<meta name="description" content="神芙刷课站 · 神芙软件开发工作室">
+<link rel="stylesheet" href="/static/app.css?v=7">
+<link rel="icon" href="/static/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/static/logo-64.png">
+<link rel="apple-touch-icon" href="/static/apple-touch-icon.png">
+<meta name="theme-color" content="#f6f5f2">
+</head>
+<body>
+
+<!-- 启动遮罩 -->
+<div class="boot" id="boot">
+  <div>
+    <img class="boot-logo" src="/static/logo-128.png" alt="神芙" width="56" height="56">
+    <div class="boot-mark">神芙</div>
+    <div class="t">正在载入控制台</div>
+  </div>
+</div>
+
+<!-- 登录 / 注册 -->
+<div class="auth" id="auth" hidden>
+  <section class="auth-brand">
+    <div class="auth-top">
+      <div class="wordmark">
+        <img class="glyph" src="/static/logo-128.png" alt="神芙" width="40" height="40">
+        <span class="txt">神芙软件开发工作室<em>SHENFU SOFTWARE STUDIO</em></span>
+      </div>
+    </div>
+
+    <div class="auth-mid">
+      <div class="kicker">刷课控制台 · 第二版</div>
+      <h1>课，它来刷。<br>你只管验收。</h1>
+      <p class="lede">
+        多用户隔离的智慧树刷课台。账号扫码绑定，任务独立排队，
+        每节视频的完成情况直接从服务端读取——进度不是估算出来的。
+      </p>
+      <div class="auth-spec">
+        <div><span>会话隔离</span><b>1 : 1</b></div>
+        <div><span>凭证加密</span><b>AES-256-GCM</b></div>
+        <div><span>进度来源</span><b>服务端实时</b></div>
+      </div>
+    </div>
+
+    <div class="auth-bottom">
+      智慧树密码不经过本站。绑定走官方二维码，落库的只是登录凭证密文。
+    </div>
+  </section>
+
+  <section class="auth-form">
+    <div class="auth-card">
+      <div class="card-head">
+        <h2 id="auth-title">登录</h2>
+        <p class="sub" id="auth-sub">使用你的站内账号</p>
+      </div>
+
+      <div class="segmented">
+        <button id="tab-login" class="on" data-mode="login">登录</button>
+        <button id="tab-reg" data-mode="register">注册</button>
+      </div>
+
+      <div class="field">
+        <label for="email">邮箱</label>
+        <input id="email" type="email" autocomplete="username" placeholder="you@example.com" spellcheck="false">
+      </div>
+      <div class="field">
+        <label for="password">密码</label>
+        <input id="password" type="password" autocomplete="current-password" placeholder="至少 8 位">
+      </div>
+      <div class="err" id="auth-err"></div>
+      <button class="btn pri block" id="btn-auth">登录</button>
+      <div class="hintline" id="first-hint"></div>
+    </div>
+    <div class="auth-legal">© 2026 神芙软件开发工作室</div>
+  </section>
+</div>
+
+<!-- 主壳 -->
+<div id="shell" hidden>
+  <header class="topbar">
+    <a class="brand" href="#/overview" data-act="nav" data-to="overview">
+      <img class="glyph" src="/static/logo-128.png" alt="神芙" width="34" height="34">
+      <span class="btxt">
+        <b id="brand-name">神芙刷课站</b>
+        <i>神芙软件开发工作室</i>
+      </span>
+    </a>
+
+    <nav class="nav" id="nav"></nav>
+
+    <div class="top-actions">
+      <div class="clock"><i></i><span id="pulse-txt">--:--:--</span></div>
+      <button class="btn ghost sm" id="btn-refresh">刷新</button>
+      <div class="userchip" id="userchip" data-act="nav" data-to="account">
+        <span class="avatar" id="avatar">—</span>
+        <span class="uc-txt">
+          <span class="uc-mail" id="uc-mail">—</span>
+          <span class="uc-role" id="uc-role">—</span>
+        </span>
+      </div>
+      <button class="btn ghost sm" id="btn-logout">退出</button>
+    </div>
+
+    <button class="burger" id="burger" aria-label="菜单">菜单</button>
+  </header>
+
+  <nav class="subnav" id="subnav" hidden></nav>
+
+  <main class="main">
+    <div class="crumb">
+      <span id="crumb-sec">console</span>
+      <span class="sl">/</span>
+      <span id="crumb-title">总览</span>
+    </div>
+    <div class="view" id="view"></div>
+    <footer class="foot">
+      <span>神芙刷课站</span>
+      <span class="dot">·</span>
+      <span>© 2026 神芙软件开发工作室 版权所有</span>
+    </footer>
+  </main>
+</div>
+
+<div id="toast"></div>
+
+<script src="/static/app.js?v=7"></script>
+</body>
+</html>
